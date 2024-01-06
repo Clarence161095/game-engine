@@ -1,0 +1,10 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import Screen from './screen.jsx'
+import './main.scss'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Screen />
+  </React.StrictMode>,
+)
