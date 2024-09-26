@@ -1,36 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from './components/Image';
 import Position from './components/Position';
 import './screen.scss';
 
-const DEFAULT_SCREEN_SIZE = 1000;
+const DEFAULT_SCREEN_SIZE = 390;
 
 function Screen() {
-  const [position, setPosition] = useState({ x: 200, y: 200 });
-
-  function moveAction(event) {
-    switch (event.key) {
-      case 'ArrowUp':
-        setPosition({ ...position, y: position.y - 10 });
-        break;
-      case 'ArrowDown':
-        setPosition({ ...position, y: position.y + 10 });
-        break;
-      case 'ArrowLeft':
-        setPosition({ ...position, x: position.x - 10 });
-        break;
-      case 'ArrowRight':
-        setPosition({ ...position, x: position.x + 10 });
-        break;
-      default:
-        break;
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('keydown', moveAction);
-    return () => window.removeEventListener('keydown', moveAction);
-  }, []);
+  const [position] = useState({ x: DEFAULT_SCREEN_SIZE / 2 - 50, y: DEFAULT_SCREEN_SIZE / 2 - 50 });
 
   return (
     <div className='flex justify-center'>
